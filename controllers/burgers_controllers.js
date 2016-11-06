@@ -20,20 +20,34 @@ router.get('/Burger', function (req, res) {
 	});
 });
 
-//router.post('/burgers/create', function (req, res) {
-//	burger.create(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], function () {
-//		res.redirect('/burgers');
-//	});
-//});
+router.post('/burgers/create', function (req, res) {
+	
+	burger.create({
+		burgerName: req.body.burgerName, 
+		devoured: req.body.devoured
+	})
 
-//router.put('/burgers/update/:id', function (req, res) {
-//	var condition = 'id = ' + req.params.id;
+		.then(function () {
+		res.redirect('/burger');
+	})
+});
 
-//	console.log('condition', condition);
+router.put('/burgers/update/:id', function (req, res) {
+	//var condition = 'id = ' + req.params.id;
 
-//	burger.update({ devoured: req.body.devoured }, condition, function () {
-//		res.redirect('/burgers');
-//	});
-//});
+	//console.log('condition', condition);
+
+	burger.update(
+		{ 
+			devoured: req.body.devoured 
+		}, 
+		{
+			where: { id : req.params.id }
+		})
+
+		.then(function (result) {
+		res.redirect('/burger');
+	});
+});
 
 module.exports = router;

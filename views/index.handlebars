@@ -4,10 +4,10 @@
   <h2>Burgers not eaten!</h2>
 
   <ul class="notEaten col-md-6">
-    {{#each burgers}}
+    {{#each burger}}
       {{#unless this.devoured}}
         <li>
-          {{this.burger_name}}
+          {{this.burgerName}}
 
           <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
             <input type="hidden" name="devoured" value="true">
@@ -24,10 +24,10 @@
   <h2 class="headEaten col-md-6">Burgers Devoured!</h2>
 
   <ul class="eaten col-md-6">
-    {{#each burgers}}
+    {{#each burger}}
       {{#if this.devoured}}
         <li>
-          {{this.burger_name}}
+          {{this.burgerName}}
 
           <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
             <input type="hidden" name="devoured" value="false">
@@ -47,7 +47,7 @@
 
       <div class="form-group">
         <label for="burger">Burger Name:</label>
-        <input type="text" id="burger" name="burger_name">
+        <input type="text" id="burger" name="burgerName">
 
       </div>
 
