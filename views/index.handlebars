@@ -1,6 +1,6 @@
 <h1 class="page-header">Burgers!</h1>
 
-<div class="row">
+<div class="row col-md-10">
   <h2>Burgers not eaten!</h2>
 
   <ul class="notEaten col-md-6">
@@ -17,11 +17,10 @@
       {{/unless}}
     {{/each}}
   </ul>
-</div>
 
-<div class="row">
 
-  <h2 class="headEaten col-md-6">Burgers Devoured!</h2>
+
+  <h2 class="headEaten">Burgers Devoured!</h2>
 
   <ul class="eaten col-md-6">
     {{#each burger}}
@@ -39,8 +38,7 @@
 
 </div>
 
-<div class="row">
-  <div class ="addBurger">
+<div class="row addBurger col-md-10">
     <h2>Add a burger</h2>
     <form class="create-update-form" action="burgers/create" method="POST">
       <input type="hidden" name="devoured" value="0">
@@ -53,5 +51,4 @@
 
       <button type="submit">Add burger</button>
     </form>
-  </div>
 </div>
