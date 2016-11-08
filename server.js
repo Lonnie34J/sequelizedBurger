@@ -37,4 +37,6 @@ app.use('/', routes);
 
 
 //set port to listen
-app.listen(PORT);
+app.listen(PORT, function(){
+	console.log("App is listening on port " + PORT);
+});
